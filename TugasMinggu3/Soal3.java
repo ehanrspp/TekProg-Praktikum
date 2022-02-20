@@ -16,8 +16,8 @@ public class Soal3 {
         
         // algoritma //
         A = keyboard.nextInt();
-        B = keyboard.nextInt();
         operator = keyboard.next().charAt(0); // input operator
+        B = keyboard.nextInt();
         if ((A>=1 && A<=1000) && (B>=1 && B<=1000)){
             switch (operator){
                 case '+' : System.out.println(A+B);
