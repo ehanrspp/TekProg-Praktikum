@@ -1,42 +1,48 @@
-package Soal4;
-import java.util.Scanner;
-/**
- *
- * @author Ehan
- * Program ini bertujuan untuk menghitung gaji agent perbulan berdasarkan jumlah penjualan yang telah agent berhasil lakukan
- */
+ppackage soal4;
+import java.util.*;
 public class Soal4 {
-    public static void main (String args[]){
-        double gajiPokok, hargaItem, gajiTotal, gajiBonus, denda;
-        int jumlahItem;
+    public static void main(String[] args){
+        int gajiPokok = 500000;
+        int potonganGaji = 0;
+        int bonus = 0;
+        int totalPenjualan = 0;
+        int itemTerjual = 0;
+        int gajiBersih = 0;
         
-        //inisialisasi
-        gajiPokok = 500000;
-        hargaItem = 50000;
-        Scanner read = new Scanner(System.in);
-        //baca input total item
-        jumlahItem = read.nextInt();
+        Scanner sc= new Scanner(System.in);
+        itemTerjual = sc.nextInt(); // input berapa jumlah item yang terjual
+        totalPenjualan = itemTerjual * 50000; // untuk mencari hasil penjualan maka total penjualan dikali 50000
         
-        //perhitungan sesuai kondisi
-        if( jumlahItem>80){
-            gajiBonus = (jumlahItem * hargaItem * 0.35);
-            gajiTotal = gajiPokok + gajiBonus;
-           
+        if (itemTerjual < 15){ 
+            /* 
+               jika item yang terjual kurang dari 15 maka 
+               akan mendapat potongan 15% dari total kekurangan
+            */
+            potonganGaji = (15*(750000 - totalPenjualan))/100;
+            gajiBersih = gajiPokok - potonganGaji;
+        } else if (itemTerjual >= 15 && itemTerjual < 40) {
+            /* 
+               jika item yang terjual kurang dari 40 maka 
+               akan mendapat bonus 10% dari penjualan item
+            */
+            bonus = (10*totalPenjualan)/100;
+            gajiBersih = gajiPokok + bonus;
+        } else if (itemTerjual >= 40 && itemTerjual <= 80) {
+            /* 
+               jika item yang terjual kurang dari 81 maka 
+               akan mendapat bonus 25% dari penjualan item
+            */
+            bonus = (25*totalPenjualan)/100;
+            gajiBersih = gajiPokok + bonus;
+        } else if (itemTerjual > 80) {
+            /* 
+               jika item yang terjual lebih dari 80 maka 
+               akan mendapat bonus 35% dari penjualan item
+            */
+            bonus = (35*totalPenjualan)/100;
+            gajiBersih = gajiPokok + bonus;
         }
-        else if(jumlahItem>=40){
-            gajiBonus = (jumlahItem * hargaItem * 0.25);
-            gajiTotal = gajiPokok + gajiBonus;
-        }
-        else if(jumlahItem<15){
-            jumlahItem = 15 - jumlahItem;
-            denda = (jumlahItem * hargaItem * 0.15);
-            gajiTotal = gajiPokok - denda;
-        }
-        else{
-            gajiBonus = (jumlahItem * hargaItem * 0.1);
-            gajiTotal = gajiPokok + gajiBonus;
-        }
-        //convert double to int
-        System.out.println((int)gajiTotal);
+        
+        System.out.println(gajiBersih); // menampilkan gaji bersih yang didapat
     }
 }
