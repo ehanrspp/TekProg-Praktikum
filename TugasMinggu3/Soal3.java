@@ -15,16 +15,21 @@ public class Soal3 {
         char operator; // operator yang akan diinputkan
         
         // algoritma //
-        angka1 = keyboard.nextInt();
+        A = keyboard.nextInt();
+        B = keyboard.nextInt();
         operator = keyboard.next().charAt(0); // input operator
-        angka2 = keyboard.nextInt();
-        if ((angka1>=1 && angka1<=1000) && (angka2>=1 && angka2<=1000)){
+        if ((A>=1 && A<=1000) && (B>=1 && B<=1000)){
             switch (operator){
-                case '+' : System.out.println(angka1+angka2);break;
-                case '-' : System.out.println(angka1-angka2);break;
-                case '*' : System.out.println(angka1*angka2);break;
-                case '/' : System.out.println(angka1/angka2);break;
-                case '%' : System.out.println(angka1%angka2);break;
+                case '+' : System.out.println(A+B);
+                    break;
+                case '-' : System.out.println(A-B);
+                    break;
+                case '*' : System.out.println(A*B);
+                    break;
+                case '/' : System.out.println(A/B);
+                    break;
+                case '%' : System.out.println(A%B);
+                    break;
             }   
         }
     }
