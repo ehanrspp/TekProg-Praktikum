@@ -15,7 +15,7 @@ public class Commission extends Hourly{
     
     // constructor //
     public Commission (String eName, String eAddress, String ePhone,
-    String socSecNumber, double rate){
+    String socSecNumber, double rate, double rateE){
         super (eName, eAddress, ePhone, socSecNumber, rate);
         this.rateE = rateE;
     }
